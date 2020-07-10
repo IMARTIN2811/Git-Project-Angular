@@ -5,13 +5,15 @@ import { AppComponent } from './app.component';
 import { CabeceraComponent } from './cabecera/cabecera.component';
 import { FooterComponent } from './footer/footer.component';
 import { CuerpoComponent } from './cuerpo/cuerpo.component';
+import { AdminComponent } from './admin/admin/admin.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     CabeceraComponent,
     FooterComponent,
-    CuerpoComponent
+    CuerpoComponent,
+    AdminComponent
   ],
   imports: [
     BrowserModule
