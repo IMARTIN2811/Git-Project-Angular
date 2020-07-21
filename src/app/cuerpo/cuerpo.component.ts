@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ArchivosJSService } from './../archivos-js.service';
 
 @Component({
   selector: 'app-cuerpo',
@@ -7,7 +8,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CuerpoComponent implements OnInit {
 
-  constructor() { }
+  constructor( private _cargaScript:ArchivosJSService) { 
+    _cargaScript.cargar(["js/app"]);
+  }
 
   ngOnInit(): void {
   }
