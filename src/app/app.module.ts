@@ -1,13 +1,13 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-//inicio servicio, se agrega el servicio de los archivos js
-import { ArchivosJSService } from './archivos-js.service';
-//fin servicio
 import { AppComponent } from './app.component';
 import { CabeceraComponent } from './cabecera/cabecera.component';
 import { FooterComponent } from './footer/footer.component';
 import { CuerpoComponent } from './cuerpo/cuerpo.component';
 import { AdminComponent } from './admin/admin/admin.component';
+//Se agrega el import para utilizar los forms reactivos(Form control)
+import { ReactiveFormsModule } from '@angular/forms';
+
 
 @NgModule({
   declarations: [
@@ -18,10 +18,10 @@ import { AdminComponent } from './admin/admin/admin.component';
     AdminComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    ReactiveFormsModule
   ],
   providers: [
-    ArchivosJSService
   ],
   bootstrap: [AppComponent]
   
