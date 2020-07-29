@@ -13,7 +13,7 @@
     <p *ngIf="EmailCtrl.errors && EmailCtrl.dirty">
         <small *ngIf="EmailCtrl.hasError('required')">El campo es que requerido</small>
         <small *ngIf="EmailCtrl.hasError('maxlength')">Este campo debe ser maximo de 10</small>
-        <small *ngIf="EmailCtrl.hasError('minlength')">Este campo debe ser minimo de 10</small>
+        <small *ngIf="EmailCtrl.hasError('minlength')">Este campo debe ser minimo de 4</small>
     </p>
     <button [disabled]="EmailCtrl.invalid" type="button" (click)="getEmail($event)">Save</button>
 </body>
