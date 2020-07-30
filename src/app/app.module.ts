@@ -7,7 +7,14 @@ import { CuerpoComponent } from './cuerpo/cuerpo.component';
 import { AdminComponent } from './admin/admin/admin.component';
 //Se agrega el import para utilizar los forms reactivos(Form control)
 import { ReactiveFormsModule } from '@angular/forms';
+import { FormGroupComponent } from './form-group/form-group.component';
+//importan las rutas
+import {Routes, RouterModule} from '@angular/router';
+import { InicioComponent } from './inicio/inicio.component';
 
+const routes : Routes = [
+  {path: 'form-group', component: FormGroupComponent}
+];
 
 @NgModule({
   declarations: [
@@ -15,11 +22,15 @@ import { ReactiveFormsModule } from '@angular/forms';
     CabeceraComponent,
     FooterComponent,
     CuerpoComponent,
-    AdminComponent
+    AdminComponent,
+    FormGroupComponent,
+    InicioComponent
   ],
   imports: [
     BrowserModule,
-    ReactiveFormsModule
+    //se importa el reactive
+    ReactiveFormsModule,
+    RouterModule.forRoot(routes)
   ],
   providers: [
   ],
