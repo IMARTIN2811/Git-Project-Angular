@@ -31,8 +31,8 @@ export class FormGroupComponent implements OnInit {
       //valor es igual a FormControl que tiene dos parametros de entrada, valor inicial y el array de validacion
       name: ['', [Validators.required]],
       date: ['', [Validators.required]],
-      email: ['',[Validators.email]],
-      text: ['', [Validators.maxLength(80)]],
+      email: ['',[Validators.required, Validators.email]],
+      text: ['', [Validators.required, Validators.maxLength(80)]],
       category: ['', [Validators.required]],
       gender: ['', [Validators.required]],
 
