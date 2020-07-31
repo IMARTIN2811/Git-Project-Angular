@@ -14,7 +14,9 @@ export class FormGroupComponent implements OnInit {
   form: FormGroup;
 
   //se usa para realizar peticiones internos, no depende de terceros
-  constructor() { 
+  constructor(
+    private formBuider: FormBuilder
+  ) { 
     //ejecuta el metodo
     this.buildForm();
   }
@@ -25,28 +27,35 @@ export class FormGroupComponent implements OnInit {
 
   public buildForm(){
     //hace la instancia del form 
-    this.form = new FormGroup({
+    this.form = this.formBuider.group({
       //valor es igual a FormControl que tiene dos parametros de entrada, valor inicial y el array de validacion
-      name: new FormControl('', [Validators.required]),
-      date: new FormControl('', [Validators.required]),
-      email: new FormControl('',[Validators.email]),
-      text: new FormControl('', [Validators.maxLength(200)]),
-      category: new FormControl('', [Validators.required]),
-      gender: new FormControl('', [Validators.required]),
+      name: ['', [Validators.required]],
+      date: ['', [Validators.required]],
+      email: ['',[Validators.email]],
+      text: ['', [Validators.maxLength(80)]],
+      category: ['', [Validators.required]],
+      gender: ['', [Validators.required]],
 
     });
-
-    //this.form.valueChanges
-    //.pipe(debounceTime(500))
-    //.subscribe(value =>{
-    //  console.log(value);
-    //});
   }
   
   save(event: Event) {
     event.preventDefault();
-    const value = this.form.value;
-    console.log(value);
+    console.log('save')
+    if (this.form.valid) {
+      const value = this.form.value;
+      console.log(value);
+    }else{
+      this.form.markAllAsTouched();
+    } 
+  }
+
+  get emailField(){
+    return this.form.get('email');
+  }
+
+  doSomething() {
+    console.log('click');
   }
 
 }

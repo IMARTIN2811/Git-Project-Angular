@@ -12,8 +12,15 @@ import { FormGroupComponent } from './form-group/form-group.component';
 import {Routes, RouterModule} from '@angular/router';
 import { InicioComponent } from './inicio/inicio.component';
 
+//configuracion de las rutas
 const routes : Routes = [
-  {path: 'form-group', component: FormGroupComponent}
+
+  {path: 'form-group', component: FormGroupComponent},
+  //cuando no  haya una ruta definida va ocupar el comp. inicio
+  {path: '', component:InicioComponent, pathMatch: 'full'},
+  //cualquier ruta desconocida va redirijir al inicio
+  {path: '**', redirectTo: '/', pathMatch:'full' }
+
 ];
 
 @NgModule({
