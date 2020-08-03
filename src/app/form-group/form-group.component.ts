@@ -39,6 +39,7 @@ export class FormGroupComponent implements OnInit {
     });
   }
   
+
   save(event: Event) {
     event.preventDefault();
     console.log('save')
@@ -47,11 +48,16 @@ export class FormGroupComponent implements OnInit {
       console.log(value);
     }else{
       this.form.markAllAsTouched();
-    } 
-  }
+    }
+    
+  } 
 
   get emailField(){
     return this.form.get('email');
+  }
+
+  get nameField(){
+    return this.form.get('name');
   }
 
   doSomething() {

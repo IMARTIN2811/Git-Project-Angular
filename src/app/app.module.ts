@@ -11,15 +11,17 @@ import { FormGroupComponent } from './form-group/form-group.component';
 //importan las rutas
 import {Routes, RouterModule} from '@angular/router';
 import { InicioComponent } from './inicio/inicio.component';
+import { FormProductComponent } from './form-product/form-product.component';
 
 //configuracion de las rutas
 const routes : Routes = [
 
-  {path: 'form-group', component: FormGroupComponent},
+  { path: 'form-product', component:FormProductComponent },
+  { path: 'form-group', component: FormGroupComponent },
   //cuando no  haya una ruta definida va ocupar el comp. inicio
-  {path: '', component:InicioComponent, pathMatch: 'full'},
+  { path: '', component:InicioComponent, pathMatch: 'full' },
   //cualquier ruta desconocida va redirijir al inicio
-  {path: '**', redirectTo: '/', pathMatch:'full' }
+  { path: '**', redirectTo: '/', pathMatch:'full' }
 
 ];
 
@@ -31,7 +33,8 @@ const routes : Routes = [
     CuerpoComponent,
     AdminComponent,
     FormGroupComponent,
-    InicioComponent
+    InicioComponent,
+    FormProductComponent
   ],
   imports: [
     BrowserModule,
