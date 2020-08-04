@@ -1,0 +1,78 @@
+<div class="container">
+    <section class="section">
+      <form [formGroup]="form">
+        <div class="field">
+          <label class="label">Age</label>
+          <div class="control">
+            <input class="input" [class.is-danger]="form.get('age').dirty && form.get('age').invalid" type="text" formControlName="age"/>
+          </div> 
+          {{ form.get("age").errors | json }}
+        </div>
+        <div class="field">
+            <label class="label">Price</label>
+            <div class="control">
+            <input class="input" [class.is-danger]="form.get('price').dirty && form.get('price').invalid" type="text" formControlName="price" />
+            </div>
+            {{ form.get("price").errors | json }}  
+        </div>
+        <div class="field">
+            <label class="label">Name</label>
+            <div class="control">
+                <input class="input" [class.is-danger]="form.get('name').dirty && form.get('name').invalid" type="text" formControlName="name" />
+            </div>
+            {{ form.get("name").errors | json }} 
+        </div>
+        <div class="field">
+            <label class="label">Email</label>
+            <div class="control has-icons-left has-icons-right">
+                <input class="input" [class.is-danger]="emailFieldIsInvalid" [class.is-success]="emailFieldIsValid" type="email" formControlName="email"/>
+              <span class="icon is-small is-left">
+                <i class="fas fa-at"></i>
+              </span>
+              <span *ngIf="emailFieldIsInvalid; else emailCheck" class="icon is-small is-right">
+              <i class="fas fa-times"></i>
+              </span>
+              <ng-template #emailCheck>
+                  <span class="icon is-small is-right">
+                      <!-- <i class="fas fa-check"></i> -->
+                      <i class="fas fa-check"></i>
+                  </span>
+              </ng-template>
+            </div>
+            <div *ngIf="emailFieldIsInvalid">
+              <p class="help is-danger" *ngIf="emailField.hasError('required')">
+                  Es un campo requerido
+              </p>
+              <p class="help is-danger" *ngIf="emailField.hasError('email')">
+                  No es un email
+              </p>
+            </div>
+          </div>
+          <div class="field">
+            <label class="label">Texto largo:</label>
+            <div class="control">
+              <textarea class="textarea" cols="30" rows="10" formControlName="text" [class.is-danger]="form.get('text').dirty && form.get('text').invalid"></textarea>
+            </div>
+            {{ form.get("text").errors | json }} 
+            {{ form.get("text").value.length }}/80
+          </div>
+        <div class="field">
+          <label class="label">Fecha</label>
+          <div class="control has-icons-left has-icons-right">
+            <input class="input" type="date" formControlName="date" />
+            <span class="icon is-small is-left">
+              <i class="fas fa-calendar-alt"></i>
+            </span>
+            <span class="icon is-small is-right">
+              <i class="fas fa-check"></i>
+            </span>
+          </div>
+        </div>
+        <div class="field is-grouped">
+          <div class="control">
+            <button class="button is-primary" type="submit">Guardar</button>
+          </div>
+        </div>
+      </form>
+    </section>
+  </div>
