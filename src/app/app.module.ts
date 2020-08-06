@@ -38,6 +38,7 @@ const routes : Routes = [
     InicioComponent,
     FormProductComponent,
     UsuariosComponent
+    
   ],
   imports: [
     BrowserModule,

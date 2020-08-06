@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 //import de los formgroup 
 import { FormBuilder, FormControl,FormGroup,Validator, Validators } from '@angular/forms';
+import { MyValidations } from '../utils/my-validations';
 
 @Component({
   selector: 'app-usuarios',
@@ -27,7 +28,8 @@ export class UsuariosComponent implements OnInit {
       //si tienes una sola validacion no es necesario meterlo en un array
       //hay que ponerlo directamente y si tienes un grupo de validaciones
       //entonces si hay que hacer un array
-      age: [0, Validators.min(18)],
+      //age: [0, MyValidations.isYounger],
+      age: [0, Validators.minLength(18)],
       price: [0, [Validators.min(500), Validators.max(3000)]],
       name: ['', [Validators.required, Validators.pattern(/^[a-zA-Z ]+$/)]],
       terms: ['', Validators.requiredTrue],
