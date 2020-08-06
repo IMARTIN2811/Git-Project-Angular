@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+//importa la funcionalidad de http
 import { HttpClient } from '@angular/common/http';
 import { of } from 'rxjs';
 import { delay } from 'rxjs/operators';
@@ -14,7 +15,9 @@ export class UserService {
 
   checkEmail(email: string){
     //valida si el correo ya existe 
-    return of ({isEmailAvailable: email !== 'israel_2896@hotmail.com'})
-    .pipe(delay(500));
+    return of({ isEmailAvailable: email !== 'nicolas@gmail.com' })
+    .pipe(
+      delay(500)
+    );
   }
 }

@@ -1,5 +1,6 @@
-
 import { AbstractControl } from '@angular/forms';
+import { UserService } from '../services/user.service';
+import { map } from 'rxjs/operators'
 
 //se crea la clase y se exporta
 export class MyValidations{
@@ -14,7 +15,7 @@ export class MyValidations{
         //si no presenta error returna un null
         return null;
     }
-
+    
     static isYoungerWithParam(limit: number)
     {
         return (control: AbstractControl) =>{
@@ -27,5 +28,20 @@ export class MyValidations{
             return null;
         };
     }
-   
+
+    static validateEmail(userService: UserService){
+        //recibe el control
+        return (control:AbstractControl) =>{
+            //accede al form del input y toma el valor
+            const value = control.value;
+            //accede al servicio y tomar el valor del check
+            return userService.checkEmail(value)
+            .pipe(
+                map(response =>{
+                    //si el email esta habil returna un null sino marca un error
+                    return response.isEmailAvailable ? null : { notAvailable: true };
+                })
+            );
+        };
+    }
 }

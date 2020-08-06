@@ -8,6 +8,7 @@ import { AdminComponent } from './admin/admin/admin.component';
 //Se agrega el import para utilizar los forms reactivos(Form control)
 import { ReactiveFormsModule } from '@angular/forms';
 import { FormGroupComponent } from './form-group/form-group.component';
+import { HttpClientModule } from '@angular/common/http';
 //importan las rutas
 import {Routes, RouterModule} from '@angular/router';
 import { InicioComponent } from './inicio/inicio.component';
@@ -44,7 +45,8 @@ const routes : Routes = [
     BrowserModule,
     //se importa el reactive
     ReactiveFormsModule,
-    RouterModule.forRoot(routes)
+    RouterModule.forRoot(routes),
+    HttpClientModule
   ],
   providers: [
   ],

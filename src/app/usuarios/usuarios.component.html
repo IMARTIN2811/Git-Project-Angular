@@ -34,7 +34,6 @@
               </span>
               <ng-template #emailCheck>
                   <span class="icon is-small is-right">
-                      <!-- <i class="fas fa-check"></i> -->
                       <i class="fas fa-check"></i>
                   </span>
               </ng-template>
@@ -45,6 +44,9 @@
               </p>
               <p class="help is-danger" *ngIf="emailField.hasError('email')">
                   No es un email
+              </p>
+              <p class="help is-danger" *ngIf="emailField.hasError('notAvailable')">
+                El correo ya existe
               </p>
             </div>
           </div>
