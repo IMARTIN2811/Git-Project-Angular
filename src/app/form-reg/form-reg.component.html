@@ -1,0 +1,22 @@
+<div class="container">
+    <section class="section">
+        <form [formGroup]="form">
+            <div class="field">
+                <label class="label">Name</label>
+                <input class="input" type="text" formControlName="name" placeholder="Email address"/>
+            </div>
+            <div class="field">
+                <label class="label">Correo</label>
+                <input class="input" type="text" formControlName="email" placeholder="Email"/>
+            </div>
+            <div class="field">
+                <label class="label">Password</label>
+                <input class="input" type="text" formControlName="password" placeholder="Paswword">
+            </div>
+            <div class="control">
+                <button class="button is-primary" type="submit">Guardar</button>
+            </div>
+        </form>
+    </section>
+</div>
+
