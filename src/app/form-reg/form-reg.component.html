@@ -1,22 +1,58 @@
 <div class="container">
     <section class="section">
-        <form [formGroup]="form">
+        <form [formGroup]="form" (ngSubmit)="save($event)">
             <div class="field">
                 <label class="label">Name</label>
-                <input class="input" type="text" formControlName="name" placeholder="Email address"/>
+                <div class="control has-icons-left has-icons-right">
+                    <input class="input" type="text" formControlName="name" placeholder="Name"/>
+                    <div *ngIf="nameField.errors && nameField.touched">
+                        <p *ngIf="nameField.hasError('required')">
+                            El campo requerido
+                        </p>
+                    </div>
+                    <span class="icon is-small is-left">
+                        <i class="fas fa-user"></i>
+                    </span>
+                </div>
             </div>
             <div class="field">
-                <label class="label">Correo</label>
-                <input class="input" type="text" formControlName="email" placeholder="Email"/>
+                <label class="label">Email</label>
+                <div class="control has-icons-left has-icons-right">
+                    <input class="input" type="text" formControlName="email" placeholder="Email"/>
+                    <div *ngIf="emailField.errors && emailField.touched">
+                        <p *ngIf="emailField.hasError('required')"> 
+                            El campo es requerido
+                        </p>
+                    </div>
+                    <span class="icon is-small is-left">
+                        <i class="fas fa-at"></i>
+                    </span>
+                </div>
             </div>
             <div class="field">
                 <label class="label">Password</label>
-                <input class="input" type="text" formControlName="password" placeholder="Paswword">
+                <div class="control has-icons-left has-icons-right">
+                    <input class="input" type="text" formControlName="password" placeholder="Paswword">
+                    <div *ngIf="passField.errors && passField.touched">
+                        <p *ngIf="passField.hasError('required')">
+                            El campo es requerido
+                        </p>
+                    </div>
+                    <span class="icon is-small is-left">
+                        <i class="fas fa-unlock-alt"></i>
+                    </span>
+                </div>
             </div>
             <div class="control">
                 <button class="button is-primary" type="submit">Guardar</button>
             </div>
         </form>
+        <div>
+            <p>
+                ¿Ya tienes cuenta?
+                <a [routerLink]="['/form-login']">Iniciar sesion</a>
+            </p>
+        </div>
     </section>
 </div>
 

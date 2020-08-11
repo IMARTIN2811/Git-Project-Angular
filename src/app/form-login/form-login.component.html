@@ -1,0 +1,40 @@
+<div class="container">
+    <section class="section">
+        <form [formGroup]="Myform">
+            <div class="field">
+                <label class="label">Email</label>
+                <div class="control has-icons-left has-icons-right">
+                    <input class="input" type="text" formControlName="email" placeholder="Ingrese su email">
+                    <div *ngIf="IniSesEmail.errors && IniSesEmail.touched">
+                        <p *ngIf="IniSesEmail.hasError('required')">
+                            El campo es requerido
+                        </p>
+                    </div>
+                    <span class="icon is-small is-left">
+                        <i class="fas fa-at"></i>
+                    </span>
+                </div>
+            </div>
+            <div class="field">
+                <label class="label">Password</label>
+                <div class="control has-icons-left has-icons-right">
+                    <input class="input" type="text" formControlName="password" placeholder="Paswword">
+                    <div *ngIf="password.errors && password.touched">
+                        <p *ngIf="password.hasError('required')">
+                            El campo es requerido
+                        </p>
+                    </div>
+                    <span class="icon is-small is-left">
+                        <i class="fas fa-unlock-alt"></i>
+                    </span>
+                </div>
+            </div>
+            <div class="control">
+                <button class="button is-primary" type="submit">Iniciar sesion</button>
+            </div>
+        </form>
+        <div>
+            <a [routerLink]="['/form-reg']">Registrate aqui</a>
+        </div>
+    </section>
+</div>

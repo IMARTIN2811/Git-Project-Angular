@@ -15,10 +15,12 @@ import { InicioComponent } from './inicio/inicio.component';
 import { FormProductComponent } from './form-product/form-product.component';
 import { UsuariosComponent } from './usuarios/usuarios.component';
 import { FormRegComponent } from './form-reg/form-reg.component';
+import { FormLoginComponent } from './form-login/form-login.component';
 
 //configuracion de las rutas
 const routes : Routes = [
 
+  { path: 'form-login', component: FormLoginComponent},
   { path: 'form-reg', component: FormRegComponent },
   { path: 'usuarios', component: UsuariosComponent },
   { path: 'form-product', component:FormProductComponent },
@@ -41,7 +43,8 @@ const routes : Routes = [
     InicioComponent,
     FormProductComponent,
     UsuariosComponent,
-    FormRegComponent
+    FormRegComponent,
+    FormLoginComponent
     
   ],
   imports: [
