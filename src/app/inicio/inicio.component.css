@@ -1,0 +1,17 @@
+.content {
+    border: 1px dashed gray;
+ padding: .5em;
+ 
+ white-space: pre-wrap;
+ height: 5em;
+ overflow-y: scroll; /* se habilita el scroll vertical */
+}
+
+.content {
+    border: 1px dashed gray;
+ padding: .5em;
+ 
+ white-space: pre-wrap;
+ height: 5em;
+ overflow-y: scroll; /* se habilita el scroll vertical */
+}
